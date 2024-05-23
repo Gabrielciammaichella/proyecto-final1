@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p>Price: ${{ product.price }}</p>
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    <p>by {{ product.author }} on {{ product.created_at }}</p>
+    <a href="{% url 'product_edit' pk=product.pk %}">Edit</a>
+    <a href="{% url 'product_delete' pk=product.pk %}">Delete</a>
+{% endblock %}
